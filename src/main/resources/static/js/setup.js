@@ -23,7 +23,7 @@ var bot = new ChatSDK({
         send: function (msg) {
             if (msg.type === 'text') {
                 return {
-                    url: '//localhost/chat/talk',
+                    url: '//springboot-ai5v-30554-7-1316879657.sh.run.tcloudbase.com/chat/talk',
                     data: {
                         acceptStr: msg.content.text
                     }
