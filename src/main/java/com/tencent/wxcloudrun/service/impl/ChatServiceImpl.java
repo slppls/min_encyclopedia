@@ -6,16 +6,12 @@ import com.theokanning.openai.completion.CompletionChoice;
 import com.theokanning.openai.completion.CompletionRequest;
 import com.theokanning.openai.service.OpenAiService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -38,16 +34,19 @@ public class ChatServiceImpl implements ChatService {
         }
 
         // 超时时间 暂定3分钟
-        Duration duration = Duration.ofMinutes(3L);
+        Duration duration = Duration.ofMinutes(5L);
 
         OpenAiService openAiService = new OpenAiService(openApiToken, duration);
 
         CompletionRequest completionRequest = CompletionRequest.builder()
                 .model("text-davinci-003")
-                .temperature(0.7)
+                .temperature(0.6D)
                 .prompt(acceptStr)
-                .echo(true)
+                .echo(false)
                 .n(1)
+                .topP(1D)
+                .frequencyPenalty(0D)
+                .presencePenalty(0D)
                 .maxTokens(4000)
                 .user("小民的百科全书")
                 .build();
@@ -58,7 +57,8 @@ public class ChatServiceImpl implements ChatService {
             result = openAiService.createCompletion(completionRequest).getChoices();
         }catch (Exception e) {
             // 一般都是超时
-            return "哎呀，超时了，告诉小刘抓紧升级小水管，让它更流畅";
+            String err = e.getMessage();
+            return "哎呀，超时了，告诉小刘抓紧升级小水管，让它更流畅("+err+")";
         }
 
         if(CollectionUtils.isEmpty(result)) {

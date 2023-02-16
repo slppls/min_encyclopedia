@@ -3,19 +3,19 @@ server:
 
 
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${MYSQL_ADDRESS}/${MYSQL_DATABASE:springboot_demo}
-    username: ${MYSQL_USERNAME}
-    password: ${MySQL_PASSWORD}
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://${MYSQL_ADDRESS}/${MYSQL_DATABASE:springboot_demo}
+#    username: ${MYSQL_USERNAME}
+#    password: ${MySQL_PASSWORD}
   mvc:
     view:
       suffix: .html
       prefix: /
 
-mybatis:
-  mapper-locations: classpath*:mapper/*Mapper.xml
+#mybatis:
+#  mapper-locations: classpath*:mapper/*Mapper.xml
 
 
 open-api:
-  token: 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
+  token: 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

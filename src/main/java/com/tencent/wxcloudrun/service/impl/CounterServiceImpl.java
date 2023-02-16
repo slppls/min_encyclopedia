@@ -12,24 +12,18 @@ import java.util.List;
 @Service
 public class CounterServiceImpl implements CounterService {
 
-  final CountersMapper countersMapper;
-
-  public CounterServiceImpl(@Autowired CountersMapper countersMapper) {
-    this.countersMapper = countersMapper;
-  }
-
   @Override
   public Optional<Counter> getCounter(Integer id) {
-    return Optional.ofNullable(countersMapper.getCounter(id));
+    return Optional.ofNullable(null);
   }
 
   @Override
   public void upsertCount(Counter counter) {
-    countersMapper.upsertCount(counter);
+    return;
   }
 
   @Override
   public void clearCount(Integer id) {
-    countersMapper.clearCount(id);
+    return;
   }
 }
