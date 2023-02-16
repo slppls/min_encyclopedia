@@ -15,3 +15,7 @@ spring:
 
 mybatis:
   mapper-locations: classpath*:mapper/*Mapper.xml
+
+
+open-api:
+  token: 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
