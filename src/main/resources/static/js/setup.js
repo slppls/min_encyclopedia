@@ -1,14 +1,14 @@
 var bot = new ChatSDK({
     config: {
         navbar: {
-            title: '小民的百科全书'
+            title: '阿民的百科全书'
         },
         robot: {
             avatar: '/img/zhima.JPG'
         },
         // 用户头像
         user: {
-            avatar: '/img/dog.JPG',
+            avatar: '/img/zhima.JPG',
         },
         messages: [
             {
