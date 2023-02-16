@@ -33,6 +33,8 @@ public class ChatServiceImpl implements ChatService {
             return  "小刘说，必须告诉他点什么，才能做出回答";
         }
 
+        log.info("有人开始提问拉，问题是:{}",acceptStr);
+
         // 超时时间 暂定3分钟
         Duration duration = Duration.ofMinutes(5L);
 
