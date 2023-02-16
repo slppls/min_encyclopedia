@@ -4,10 +4,7 @@ import com.tencent.wxcloudrun.config.ApiResponse;
 import com.tencent.wxcloudrun.dto.TalkRequest;
 import com.tencent.wxcloudrun.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author seanLau
@@ -22,10 +19,10 @@ public class ChatController {
     private ChatService chatService;
 
 
-    @PostMapping("/talk")
-    ApiResponse talk(@RequestBody TalkRequest talkRequest) {
+    @GetMapping("/talk")
+    ApiResponse talk(String acceptStr) {
 
-        return ApiResponse.ok(chatService.talkWithBoot(talkRequest.getAcceptStr()));
+        return ApiResponse.ok(chatService.talkWithBoot(acceptStr));
 
     }
 
